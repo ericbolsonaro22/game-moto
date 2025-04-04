@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo a fonte padrão e cor de fundo */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('img/background.gif');
+    background-color: lightblue;
+    background-size: cover; /* Garante que o fundo ocupe toda a tela */
+    color: white;
+    text-align: center;
+}
+
+/* Contêiner que engloba tudo */
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: flex-start;
+    padding: 50px 20px;
+}
+
+/* Seção lateral (manual do jogo) */
+.manual {
+    width: 300px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 30px;
+    text-align: left;
+    position: fixed; /* Fixando a seção lateral */
+    top: 50px;
+    left: 150px; /* Posicionando no canto esquerdo */
+}
+
+.manual h2 {
+    font-size: 1.8rem;
+    color: #FFCC00; /* Cor amarela para o título */
+    margin-bottom: 15px;
+}
+
+.manual p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #FFF;
+}
+
+.manual ul {
+    list-style-type: none;
+}
+
+.manual ul li {
+    margin-bottom: 10px;
+    color: #FFCC00; /* Cor amarela para as dicas */
+}
+
+/* Seção principal (conteúdo centralizado) */
+.main-content {
+    text-align: center;
+    max-width: 800px; /* Limita a largura do conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+/* Estilo do título */
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFCC00; /* Cor amarela para o título */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Estilo da imagem */
+img {
+    width: 600px;
+    height: auto;
+    margin-bottom: 30px;
+    display: block; /* Isso garante que a imagem seja tratada como um bloco e seja centralizada */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo do link (botão) */
+a {
+    font-size: 1.5rem;
+    color: #FF3300; /* Cor vermelha para o link */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 30px;
+    background-color: #FFCC00; /* Cor amarela para o fundo do link */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block; /* Faz o link se comportar como um bloco em linha para facilitar o alinhamento */
+    margin-top: 20px; /* Espaçamento acima do link */
+}
+
+/* Efeito de hover no link */
+a:hover {
+    background-color: #FF3300; /* Cor vermelha ao passar o mouse */
+    color: #FFCC00; /* Troca a cor do texto para amarelo */
+    transform: scale(1.1); /* Aumenta o tamanho do link ao passar o mouse */
+}
+
+/* Adicionando uma animação de entrada para o título */
+h1 {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Definindo a animação de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
