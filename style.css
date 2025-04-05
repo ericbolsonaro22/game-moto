@@ -16,3 +16,8 @@ canvas{
     right: 0;
     background: linear-gradient(black, rgb(92, 92, 92))
 }
+
+#game-over-menu button:hover {
+    background-color: crimson;
+    transition: 0.2s ease;
+}
