@@ -4,25 +4,21 @@
     box-sizing: border-box;
 }
 
-/* Definindo a fonte padrão e cor de fundo */
 body {
     font-family: 'Arial', sans-serif;
     background: url('img/background2_teste.gif');
-    background-color: lightblue;
-    background-size: cover; /* Garante que o fundo ocupe toda a tela */
+    background-size: cover;
     color: white;
     text-align: center;
 }
 
-/* Contêiner que engloba tudo */
 .container {
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo */
+    justify-content: center;
     align-items: flex-start;
     padding: 50px 20px;
 }
 
-/* Seção lateral (manual do jogo) */
 .manual {
     width: 300px;
     background-color: #333;
@@ -30,14 +26,14 @@ body {
     border-radius: 10px;
     margin-right: 30px;
     text-align: left;
-    position: fixed; /* Fixando a seção lateral */
+    position: fixed;
     top: 50px;
-    left: 150px; /* Posicionando no canto esquerdo */
+    left: 150px;
 }
 
 .manual h2 {
     font-size: 1.8rem;
-    color: #FFCC00; /* Cor amarela para o título */
+    color: #FFCC00;
     margin-bottom: 15px;
 }
 
@@ -53,62 +49,55 @@ body {
 
 .manual ul li {
     margin-bottom: 10px;
-    color: #FFCC00; /* Cor amarela para as dicas */
+    color: #FFCC00; 
 }
 
-/* Seção principal (conteúdo centralizado) */
 .main-content {
     text-align: center;
-    max-width: 800px; /* Limita a largura do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo */
+    max-width: 800px; 
+    margin: 0 auto;
 }
 
-/* Estilo do título */
 h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #FFCC00; /* Cor amarela para o título */
+    color: #FFCC00; 
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
-/* Estilo da imagem */
 img {
     width: 600px;
     height: auto;
     margin-bottom: 30px;
-    display: block; /* Isso garante que a imagem seja tratada como um bloco e seja centralizada */
-    margin-left: auto; /* Centraliza horizontalmente */
-    margin-right: auto; /* Centraliza horizontalmente */
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
-/* Estilo do link (botão) */
 a {
     font-size: 1.5rem;
-    color: #FF3300; /* Cor vermelha para o link */
+    color: #FF3300;
     text-decoration: none;
     font-weight: bold;
     padding: 15px 30px;
-    background-color: #FFCC00; /* Cor amarela para o fundo do link */
+    background-color: #FFCC00;
     border-radius: 5px;
     transition: all 0.3s ease;
-    display: inline-block; /* Faz o link se comportar como um bloco em linha para facilitar o alinhamento */
-    margin-top: 20px; /* Espaçamento acima do link */
+    display: inline-block;
+    margin-top: 20px; 
 }
 
-/* Efeito de hover no link */
 a:hover {
-    background-color: #FF3300; /* Cor vermelha ao passar o mouse */
-    color: #FFCC00; /* Troca a cor do texto para amarelo */
-    transform: scale(1.1); /* Aumenta o tamanho do link ao passar o mouse */
+    background-color: #FF3300; 
+    color: #FFCC00;
+    transform: scale(1.1);
 }
 
-/* Adicionando uma animação de entrada para o título */
 h1 {
     animation: fadeIn 1s ease-out;
 }
 
-/* Definindo a animação de fade-in */
 @keyframes fadeIn {
     0% {
         opacity: 0;
