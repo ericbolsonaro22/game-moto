@@ -7,7 +7,7 @@
 /* Definindo a fonte padrão e cor de fundo */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('img/background.gif');
+    background: url('img/background2_teste.gif');
     background-color: lightblue;
     background-size: cover; /* Garante que o fundo ocupe toda a tela */
     color: white;
@@ -67,7 +67,7 @@ body {
 h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #FF3300; /* Cor amarela para o título */
+    color: #FFCC00; /* Cor amarela para o título */
     text-transform: uppercase;
     margin-bottom: 20px;
 }

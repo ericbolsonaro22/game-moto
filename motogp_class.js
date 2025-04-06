@@ -18,12 +18,10 @@ class Carro extends Obj{
     vida = 5
     frame = 1
     tempo = 0
-    desgastePneu = 0  // 0% (novo) até 100% (gasto)
-
-    // ... (métodos já existentes)
+    desgastePneu = 0  
 
     atualizaDesgaste(){
-        this.desgastePneu += 0.05  // aumenta com o tempo (pode ajustar)
+        this.desgastePneu += 0.09
         if(this.desgastePneu > 100){
             this.desgastePneu = 100
         }
@@ -56,8 +54,8 @@ class Carro extends Obj{
 
     mov_carro(){
         this.x += this.dir
-        if(this.x <= 2){
-            this.x = 2
+        if(this.x <= 4){
+            this.x = 4
         } else if(this.x >= (500 - this.w - 4)){
             this.x = 500 - this.w - 4
         }
@@ -87,7 +85,7 @@ class PneuNaPista extends Obj {
     ativo = true
 
     mov_pneu(){
-        this.y += 2
+        this.y += 3
         if(this.y >= 780){
             this.reposicionar()
         }
@@ -96,7 +94,7 @@ class PneuNaPista extends Obj {
     des_pneu(){
         if(this.ativo){
             let img = new Image()
-            img.src = '/img/pneu.png' // coloque um ícone de pneu aí
+            img.src = '/img/pneu.png'
             des.drawImage(img, this.x, this.y, this.w, this.h)
         }
     }
@@ -120,7 +118,7 @@ class PneuNaPista extends Obj {
 
 class Carro2 extends Carro{
     mov_carro2(){
-        this.y += 2
+        this.y += 5
         if(this.y >= 780){
             this.recomeca()
         }
@@ -128,7 +126,7 @@ class Carro2 extends Carro{
     
     recomeca(){
         this.y = -100
-        this.x = Math.floor(Math.random() * ((416 - 2 + 1) + 2)) // quando o carro sair da tela
+        this.x = Math.floor(Math.random() * ((416 - 2 + 1) + 2))
     }
 }
 
@@ -139,7 +137,7 @@ class Estrada extends Obj{
     }
 
     mov_est(){
-        this.y += 4
+        this.y += 5
         if(this.y >= 780){
             this.y = -100
         }

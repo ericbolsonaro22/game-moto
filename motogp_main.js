@@ -2,9 +2,7 @@ let des = document.getElementById('des').getContext('2d')
 
 let c1 = new Carro(225,450,50,80,'darkblue')
 let carro = new Carro(225,550,45,100,'/img/moto01.png')
-// let c2 = new Carro2(400,-40,50,80,'orange')
 let c2 = new Carro2(400,-40,45,100,'/img/moto02.png')
-// let c3 = new Carro2(200,-280,50,80,'red')
 let c3 = new Carro2(200,-280,45,100,'/img/moto03.png')
 let pneuPickup = new PneuNaPista(100, -200, 50, 50, '/img/pneu.png')
 let ee = new Estrada(2,2,10,696,'red')
@@ -25,21 +23,22 @@ let t5 = new Text()
 let t6 = new Text()
 let t7 = new Text()
 
-let motor = new Audio('./assets/motor.wav')
-let batida = new Audio('./assets/batida.mp3')
+let motor = new Audio('/sounds/motor.wav')
+let batida = new Audio('/sounds/batida.mp3')
+let msc_final = new Audio('/sounds/msc_final.mp3')
 motor.volume = 0.8
 motor.loop = true
-batida.volume = 0.8
+batida.volume = 0.3
+msc_final.volume = 0.3
 
 let jogar = true
 
 
 document.addEventListener('keydown',(e)=>{
-    // console.log(e.key)
     if(e.key === 'a'){
-        carro.dir = -10
+        carro.dir = -7
     }else if(e.key === 'd'){
-        carro.dir = 10
+        carro.dir = 7
     }
 })
 document.addEventListener('keyup', (e)=>{
@@ -51,11 +50,11 @@ document.addEventListener('keyup', (e)=>{
 })
 
 function game_over(){
-    if(carro.vida <=0 || carro.desgastePneu >= 100){
+    if(carro.vida <= 0 || carro.desgastePneu >= 100){
         jogar = false
         motor.pause()
+        msc_final.play()
 
-        // Cria um container para os botões
         let div = document.createElement('div')
         div.id = 'game-over-menu'
         div.style.position = 'absolute'
@@ -66,20 +65,27 @@ function game_over(){
         div.style.flexDirection = 'column'
         div.style.alignItems = 'center'
         div.style.gap = '10px'
+        div.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+        div.style.padding = '20px'
+        div.style.borderRadius = '10px'
 
-        // Botão de recomeçar fase
+        let gif = document.createElement('img')
+        gif.src = '/img/gameover.gif'
+        gif.style.width = '450px'
+        gif.style.height = 'auto'
+        gif.style.paddingBottom = '20px'
+        div.appendChild(gif)
+
         let btnRetry = document.createElement('button')
         btnRetry.textContent = 'Recomeçar Fase'
         btnRetry.onclick = () => window.location.reload()
         div.appendChild(btnRetry)
 
-        // Botão de voltar ao início
         let btnHome = document.createElement('button')
         btnHome.textContent = 'Voltar ao Início'
         btnHome.onclick = () => window.location.href = 'index.html'
         div.appendChild(btnHome)
 
-        // Estilo básico
         for (let btn of [btnRetry, btnHome]) {
             btn.style.padding = '10px 20px'
             btn.style.fontSize = '18px'
@@ -90,7 +96,8 @@ function game_over(){
             btn.style.color = 'white'
         }
 
-        // Adiciona ao body
+        btnRetry.style.marginBottom = '8px'
+
         document.body.appendChild(div)
     }
 }
@@ -116,7 +123,6 @@ function colisao(){
 }
 
 function desenha() {
-    // HUD principal
     t1.des_text('Pontos: ', 360, 24, 'yellow', '26px Times')
     t2.des_text(carro.pts, 442, 24, 'yellow', '26px Times')
     t3.des_text('Vida: ', 40, 24, 'yellow', '26px Times')
@@ -126,8 +132,7 @@ function desenha() {
     let desgasteTexto = Math.floor(carro.desgastePneu) + "%"
     t5.des_text(desgasteTexto, 210, 50, 'yellow', '20px Times')
 
-    // Pneu na pista
-    pneuPickup.des_pneu()
+    
 
     if (jogar) {
         ee.des_estrada()
@@ -142,6 +147,7 @@ function desenha() {
         c2.des_car_img()
         c3.des_car_img()
         carro.des_car_img()
+        pneuPickup.des_pneu()
     }
 }
 
@@ -158,16 +164,17 @@ function atualiza(){
         c2.mov_carro2()
         c3.mov_carro2()
         carro.mov_carro()
-        // carro.anim('carro_01_')
-        pontos()
-        colisao()
-        game_over()
         pneuPickup.mov_pneu()
         carro.atualizaDesgaste()
+        
         if(pneuPickup.colid(carro)){
             carro.recuperarPneu(25)
             pneuPickup.ativo = false
         }
+
+        pontos()
+        colisao()
+        game_over()
     }
     
 
@@ -176,7 +183,6 @@ function main(){
     des.clearRect(0,0,500,700)
     desenha()
     atualiza()
-    
     requestAnimationFrame(main)
 }
 
